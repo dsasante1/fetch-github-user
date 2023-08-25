@@ -1,13 +1,13 @@
 
 <script setup>
 
-defineProps({
-    location,
-    twitterUserName,
-    blogUrl,
-    employer
+defineProps([
+    'location',
+    'twitterUserName',
+    'blogUrl',
+    'employer'
 
-})
+])
 
 </script>
 
