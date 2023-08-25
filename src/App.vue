@@ -2,6 +2,8 @@
 // import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
 import UserLocationSocialMedia from './components/UserLocationSocialMedia.vue'
+
+
 </script>
 
 <template>
@@ -45,11 +47,11 @@ import UserLocationSocialMedia from './components/UserLocationSocialMedia.vue'
             mattis eros.
           </span>
           
-          <UserLocationSocialMedia />
+        
         
         </span>
 
-
+          <UserLocationSocialMedia location="accra" twitterUserName="kofi ghana" blogUrl="ghaha.com" employer="BBC"/>
       </div>
 
 

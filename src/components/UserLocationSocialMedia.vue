@@ -1,5 +1,15 @@
 
-<script setup></script>
+<script setup>
+
+defineProps({
+    location,
+    twitterUserName,
+    blogUrl,
+    employer
+
+})
+
+</script>
 
 
 <template>
@@ -8,12 +18,14 @@
 
 <span>
     <img id="iconImage" src="@/assets/location.svg" alt="icon image">
+    <img id="iconImage" src="@/assets/003-pin.svg" alt="icon image">
     <span>{{ location }}</span> 
 </span>
 
 <span>
     <img id="iconImage" src="@/assets/twitter.svg" alt="icon image">
-    <span>{{ location }}</span> 
+    <img id="iconImage" src="@/assets/Path.svg" alt="icon image">
+    <span>{{ twitterUserName }}</span> 
 </span>
 
 </div>
@@ -22,6 +34,7 @@
 
 <span>
     <img id="iconImage" src="@/assets/url.svg" alt="icon image">
+    <img id="iconImage" src="@/assets/002-url.svg" alt="icon image">
     <span>{{ blogUrl }}</span> 
 </span>
 
@@ -38,7 +51,6 @@
 <style scoped>
 
 #iconImage{
-    color: white;
     
 }
 
