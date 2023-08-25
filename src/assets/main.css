@@ -1,35 +1,46 @@
-@import './base.css';
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+    background-color: #141d2f;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+
+.textColor{
+    color:white;
+
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
+nav{
     display: flex;
-    
-  }
+    flex-direction: row;
+    justify-content: space-between;
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
 }
+
+
+#toggle{
+    display: flex;
+    gap: 10px;
+}
+
+
+.inputSection{
+    background-color: #1e2a47;
+    padding: 40px;
+}
+
+
+.searchButton{
+    background-color: #0079ff;
+    color: white;
+}
+
+.mainBody{
+    background-color: #1e2a47;
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+}
+
+

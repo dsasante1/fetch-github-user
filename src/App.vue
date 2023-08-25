@@ -4,10 +4,9 @@
 </script>
 
 <template>
-
       <nav>
-        <span>devfinder</span>
-        <span>
+        <span class="textColor">devfinder</span>
+        <span class="textColor" id="toggle">
           LIGHT
           <img id="toggleTheme" src="@/assets/moon.svg" alt="toggle theme"> 
         </span>
@@ -15,12 +14,34 @@
         <RouterLink to="/about">About</RouterLink> -->
       </nav>
 
+      <div class="inputSection">
+
+        <img id="magnifyGlass" src="@/assets/search.svg" alt="magnifying glass">
+        <input type="text" placeholder="Search User..."/>
+        <span class="searchButton">Search</span>
+
+
+      </div>
+
+      <div class="mainBody">
+        
+        <!-- insert image -->
+
+        <span class="userImage">
+          <img id="toggleTheme" src="@/assets/userImage.png" alt="toggle theme">
+        </span>
+
+        <!-- user details -->
+        <span></span>
+
+
+      </div>
+
 
   <!-- <RouterView /> -->
+
 </template>
 
 <style scoped>
-span{
-  color: white;
-}
+
 </style>
