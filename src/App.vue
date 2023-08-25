@@ -1,6 +1,7 @@
 <script setup>
 // import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
+import UserLocationSocialMedia from './components/UserLocationSocialMedia.vue'
 </script>
 
 <template>
@@ -32,7 +33,21 @@
         </span>
 
         <!-- user details -->
-        <span></span>
+        <span class="userDetails">
+          <span id="details">
+            <span>The Octocat</span>
+            <span>Joined 25 Jan 2011</span>
+          </span>
+          <span>@octocat</span>
+          <span>
+            Lorem ipsum dolor sit amet, consectetuer 
+            adipiscing elit. Donec odio. Quisque volutpat 
+            mattis eros.
+          </span>
+          
+          <UserLocationSocialMedia />
+        
+        </span>
 
 
       </div>
