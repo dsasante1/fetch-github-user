@@ -2,6 +2,7 @@
 // import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
 import UserLocationSocialMedia from './components/UserLocationSocialMedia.vue'
+import UserNameJoinDetail from './components/UserNameJoinDetail.vue'
 
 
 </script>
@@ -36,22 +37,19 @@ import UserLocationSocialMedia from './components/UserLocationSocialMedia.vue'
 
         <!-- user details -->
         <span class="userDetails">
-          <span id="details">
-            <span>The Octocat</span>
-            <span>Joined 25 Jan 2011</span>
-          </span>
-          <span>@octocat</span>
+          <UserNameJoinDetail userName="john" dateJoined="25 Jan 2011" gitHubName="good_programmer"/>
+          
           <span>
             Lorem ipsum dolor sit amet, consectetuer 
             adipiscing elit. Donec odio. Quisque volutpat 
             mattis eros.
           </span>
           
-        
+          <UserLocationSocialMedia location="accra" twitterUserName="kofi ghana" blogUrl="ghaha.com" employer="BBC"/>
         
         </span>
 
-          <UserLocationSocialMedia location="accra" twitterUserName="kofi ghana" blogUrl="ghaha.com" employer="BBC"/>
+          
       </div>
 
 
