@@ -14,9 +14,9 @@ import UserImageComponent from './components/UserImageComponent.vue';
 <template>
   <div class="body">
       <nav>
-        <span class="textColor">devfinder</span>
-        <span class="textColor" id="toggle">
-          LIGHT
+        <span class="title">devfinder</span>
+        <span  id="toggle">
+          <span class="subTitle">LIGHT</span>
           <img id="toggleTheme" src="@/assets/moon.svg" alt="toggle theme"> 
         </span>
         <!-- <RouterLink to="/">Home</RouterLink>
@@ -24,7 +24,8 @@ import UserImageComponent from './components/UserImageComponent.vue';
       </nav>
 
       <SearchComponent  />
-
+      
+      
       <div class="UserDetailsCard">
         
         <UserImageComponent />
@@ -49,6 +50,34 @@ import UserImageComponent from './components/UserImageComponent.vue';
           
       </div> 
 
+      <div class="MobileUserDetailsCard">
+        
+        <div class="MobileUserDetails">
+        
+            <UserImageComponent />
+
+        <!-- user details -->
+        
+        
+            <UserNameJoinDetail userName="john" dateJoined="25 Jan 2011" gitHubName="good_programmer"/>
+
+        </div>
+          
+          <UserBio userBio="
+            Lorem ipsum dolor sit amet, consectetuer 
+            adipiscing elit. Donec odio. Quisque volutpat 
+            mattis eros.
+            "
+          />
+
+          <UserRepoFollowers numberOfRepos="30"  numberOfFollowers="400" numberOfFollowing="200"/>
+          
+          <UserLocationSocialMedia location="accra" twitterUserName="kofi ghana" blogUrl="ghaha.com" employer="BBC"/>
+        
+    
+
+          
+      </div> 
 
   <!-- <RouterView /> -->
   </div>

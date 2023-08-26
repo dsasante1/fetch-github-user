@@ -14,19 +14,19 @@ defineProps([
     <div>
         
         <span class="innerContent">
-        <h2>Repos</h2>
+        <span class="title">Repos</span>
         <span id="repoDetails">{{ numberOfRepos }}</span>
 
         </span>
         
         <span class="innerContent">
-        <h2>Followers</h2>
+        <span class="title">Followers</span>
         <span id="repoDetails">{{ numberOfFollowers }}</span>
 
         </span>
 
         <span class="innerContent">
-        <h2>Following</h2>
+        <span class="title">Following</span>
         <span id="repoDetails">{{ numberOfFollowing }}</span>
 
         </span>
@@ -37,6 +37,10 @@ defineProps([
 
 
 <style scoped>
+.title{
+    font-size: 20px;
+}
+
 
 div{
     display: flex;
@@ -63,6 +67,16 @@ div{
     color: white;
 }
 
+
+@media only screen and (max-width: 900px){
+    .title{
+        font-size: 15px;
+    }
+
+
+
+    
+}
 
 </style>
     
