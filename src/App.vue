@@ -7,6 +7,8 @@ import UserBio from './components/UserBio.vue';
 import UserRepoFollowers from './components/UserRepoFollowers.vue';
 import SearchComponent from './components/SearchComponent.vue';
 import UserImageComponent from './components/UserImageComponent.vue';
+import LoadingComponent from './components/LoadingComponent.vue';
+import ErrorComponent from './components/ErrorComponent.vue';
 
 import { userData } from '@/stores/githubUserData'
 
@@ -14,7 +16,7 @@ import { userData } from '@/stores/githubUserData'
 const userGithubData = userData()
 
 
-const {results, errorState, isLoading} = userGithubData
+const {result, errorState, isLoading, errorMessage} = userGithubData
 
 </script>
 
@@ -32,10 +34,19 @@ const {results, errorState, isLoading} = userGithubData
 
       <SearchComponent  />
       
+      <div v-if="isLoading === true">
+        <LoadingComponent />
+      </div>
       
-      <div class="UserDetailsCard">
+      <div v-if="errorState === true">
+        <ErrorComponent :errorMessage="errorMessage"/>
+      </div>
+      
+
+      <div v-if="isLoading === false && errorState == false">
+        <div class="UserDetailsCard">
         
-        <UserImageComponent />
+        <UserImageComponent :/>
 
         <!-- user details -->
         <span class="userDetails">
@@ -66,25 +77,34 @@ const {results, errorState, isLoading} = userGithubData
         <!-- user details -->
         
         
-            <UserNameJoinDetail :userName="results[0]" dateJoined="25 Jan 2011" gitHubName="good_programmer"/>
+            <UserNameJoinDetail :userName="result[0]"
+             :dateJoined="result[2]" 
+             :gitHubName="result[1]"/>
 
         </div>
           
-          <UserBio userBio="
-            Lorem ipsum dolor sit amet, consectetuer 
-            adipiscing elit. Donec odio. Quisque volutpat 
-            mattis eros.
-            "
+          <UserBio :userBio="result[4]"
           />
 
-          <UserRepoFollowers numberOfRepos="30"  numberOfFollowers="400" numberOfFollowing="200"/>
+          <UserRepoFollowers
+           :numberOfRepos="result[5]"
+           :numberOfFollowers="result[6]" 
+           :numberOfFollowing="result[7]"/>
           
-          <UserLocationSocialMedia location="accra" twitterUserName="kofi ghana" blogUrl="ghaha.com" employer="BBC"/>
+          <UserLocationSocialMedia 
+          :location="result[8]" 
+          :twitterUserName="result[9]"
+          :blogUrl="result[10]"
+          :employer="result[11]"/>
         
     
 
           
       </div> 
+
+      </div>
+
+      
 
   <!-- <RouterView /> -->
   </div>
