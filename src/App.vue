@@ -5,6 +5,8 @@ import UserLocationSocialMedia from './components/UserLocationSocialMedia.vue'
 import UserNameJoinDetail from './components/UserNameJoinDetail.vue'
 import UserBio from './components/UserBio.vue';
 import UserRepoFollowers from './components/UserRepoFollowers.vue';
+import SearchComponent from './components/SearchComponent.vue';
+import UserImageComponent from './components/UserImageComponent.vue';
 
 
 </script>
@@ -21,33 +23,11 @@ import UserRepoFollowers from './components/UserRepoFollowers.vue';
         <RouterLink to="/about">About</RouterLink> -->
       </nav>
 
-      <div class="inputSection">
-
-        <span>
-        <img id="magnifyGlass" src="@/assets/search.svg" alt="magnifying glass">
-        <input type="text" placeholder="Search User..."/>
-      </span>
-      <span>
-        <span id="noResult">No results</span>
-        <span class="searchButton">Search</span>
-        
-
-      </span>
-        
-
-     
-        
-
-
-      </div>
+      <SearchComponent  />
 
       <div class="UserDetailsCard">
         
-        <!-- insert image -->
-
-        <span class="userImage">
-          <img id="toggleTheme" src="@/assets/userImage.png" alt="toggle theme">
-        </span>
+        <UserImageComponent />
 
         <!-- user details -->
         <span class="userDetails">
