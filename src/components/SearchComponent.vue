@@ -1,5 +1,16 @@
 
-<script setup></script>
+<script setup>
+
+import { userData } from '@/stores/githubUserData'
+
+
+const userGithubData = userData()
+
+
+const {userQuery, fetchUserData} = userGithubData
+
+
+</script>
 
 
 <template>
@@ -9,11 +20,11 @@
 
             <span id="searchItems">
             <img id="magnifyGlass" src="@/assets/search.svg" alt="magnifying glass">
-            <input type="text" placeholder="Search User..."/>
+            <input type="text" v-model="userGithubData.userQuery" placeholder="Search User..."/>
             </span>
             <span>
             <!-- <span id="noResult">No results</span> -->
-            <span class="searchButton">Search</span>
+            <span  class="searchButton" @click="fetchUserData">Search</span>
 
             </span>
             </div>
@@ -24,11 +35,11 @@
 
         <span>
         <img id="magnifyGlass" src="@/assets/search.svg" alt="magnifying glass">
-        <input type="text" placeholder="Search User..."/>
+        <input type="text" v-model="userGithubData.userQuery" placeholder="Search User..."/>
       </span>
       <span>
         <span id="noResult">No results</span>
-        <span class="searchButton">Search</span>
+        <span class="searchButton" @click="fetchUserData">Search</span>
         
       </span>
       </div>
@@ -86,6 +97,8 @@ textarea:focus, input:focus{
     padding-left: 30px;
     padding-right: 30px;
     padding: 15px;
+    cursor: pointer;
+
 
 }
 
@@ -149,6 +162,7 @@ textarea:focus, input:focus{
     color: white;
     border-radius: 10px;
     padding: 10px;
+    cursor: pointer;
 
 }
 

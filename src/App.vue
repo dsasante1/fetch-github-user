@@ -8,6 +8,13 @@ import UserRepoFollowers from './components/UserRepoFollowers.vue';
 import SearchComponent from './components/SearchComponent.vue';
 import UserImageComponent from './components/UserImageComponent.vue';
 
+import { userData } from '@/stores/githubUserData'
+
+
+const userGithubData = userData()
+
+
+const {results, errorState, isLoading} = userGithubData
 
 </script>
 
@@ -59,7 +66,7 @@ import UserImageComponent from './components/UserImageComponent.vue';
         <!-- user details -->
         
         
-            <UserNameJoinDetail userName="john" dateJoined="25 Jan 2011" gitHubName="good_programmer"/>
+            <UserNameJoinDetail :userName="results[0]" dateJoined="25 Jan 2011" gitHubName="good_programmer"/>
 
         </div>
           

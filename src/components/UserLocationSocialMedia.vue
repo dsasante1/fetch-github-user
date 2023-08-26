@@ -76,5 +76,26 @@ defineProps([
     justify-content: space-between;
 }
 
+
+
+@media only screen and (max-width: 500px){
+
+    .innerSection{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+
+
+
+
+}
+
+
+
+
+
 </style>
     
