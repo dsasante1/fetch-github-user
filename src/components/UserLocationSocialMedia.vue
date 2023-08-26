@@ -58,6 +58,7 @@ defineProps([
 <style scoped>
 
 #iconImage{
+    padding-right: 20px;
     
 }
 
@@ -65,12 +66,14 @@ defineProps([
     display:flex;
     flex-direction: column;
     gap: 10px;
+    
 }
 
 .innerSection{
     display: flex;
     flex-direction: row;
     gap: 20px;
+    justify-content: space-between;
 }
 
 </style>

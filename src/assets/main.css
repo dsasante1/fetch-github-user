@@ -2,9 +2,16 @@
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
-    background-color: #141d2f;
+   
 }
 
+.body{
+    padding: 90px;
+    background-color: #141d2f;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
 
 .textColor{
     color:white;
@@ -24,30 +31,71 @@ nav{
     gap: 10px;
 }
 
+input{
+    background-color: #211e41;
+    border: none;
+    padding-left: 30px;
+    color:white;
+    font-size: larger;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
 
 .inputSection{
-    background-color: #1e2a47;
-    padding: 40px;
+    background-color: #211e41;
+    padding: 20px;
+    padding-left: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
 
 .searchButton{
-    background-color: #0079ff;
+    background-color: #6787ff;
     color: white;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding: 15px;
+
 }
 
-.mainBody{
-    background-color: #1e2a47;
-    padding: 40px;
+
+#noResult{
+    color: red;
+    font-size: medium;
+    padding-right: 20px;
+    
+}
+
+
+.UserDetailsCard{
+   
     display: flex;
     flex-direction: row;
+    background-color: #211e41;
+    
 }
 
+
+.userImage{
+    padding: 40px;
+
+}
 
 .userDetails{
     display: flex;
     flex-direction: column;
     gap: 40px;
+    padding: 40px;
+
+   
 
 }
 
