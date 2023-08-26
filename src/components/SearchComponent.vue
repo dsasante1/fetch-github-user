@@ -80,7 +80,7 @@ textarea:focus, input:focus{
 
 
 .searchButton{
-    background-color: #6787ff;
+    background-color: #0079fe;
     color: white;
     border-radius: 10px;
     padding-left: 30px;
@@ -145,7 +145,7 @@ textarea:focus, input:focus{
 
 
 .searchButton{
-    background-color: #6787ff;
+    background-color: #0079fe;
     color: white;
     border-radius: 10px;
     padding: 10px;
