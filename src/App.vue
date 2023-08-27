@@ -10,13 +10,15 @@ import UserImageComponent from './components/UserImageComponent.vue';
 import LoadingComponent from './components/LoadingComponent.vue';
 import ErrorComponent from './components/ErrorComponent.vue';
 
+import { storeToRefs } from 'pinia';
+
 import { userData } from '@/stores/githubUserData'
 
 
-const userGithubData = userData()
+let userGithubData = userData()
 
 
-const {result, errorState, isLoading, errorMessage} = userGithubData
+let {result, errorState, isLoading, errorMessage} = storeToRefs(userGithubData)
 
 </script>
 
@@ -28,40 +30,46 @@ const {result, errorState, isLoading, errorMessage} = userGithubData
           <span class="subTitle">LIGHT</span>
           <img id="toggleTheme" src="@/assets/moon.svg" alt="toggle theme"> 
         </span>
-        <!-- <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink> -->
+
       </nav>
 
       <SearchComponent  />
       
-      <div v-if="isLoading === true">
+      <div v-if="isLoading">
         <LoadingComponent />
       </div>
       
-      <div v-if="errorState === true">
+      <div v-else-if="errorState">
         <ErrorComponent :errorMessage="errorMessage"/>
       </div>
       
 
-      <div v-if="isLoading === false && errorState == false">
+      <!-- <div v-else-if="isLoading === false && errorState == false"> -->
+        
         <div class="UserDetailsCard">
         
-        <UserImageComponent :/>
+        <UserImageComponent :userImage="result[3]"/>
 
         <!-- user details -->
         <span class="userDetails">
-          <UserNameJoinDetail userName="john" dateJoined="25 Jan 2011" gitHubName="good_programmer"/>
-          
-          <UserBio userBio="
-            Lorem ipsum dolor sit amet, consectetuer 
-            adipiscing elit. Donec odio. Quisque volutpat 
-            mattis eros.
-            "
-          />
+          <UserNameJoinDetail :userName="result[0]"
+             :dateJoined="result[2]" 
+             :gitHubName="result[1]"/>
 
-          <UserRepoFollowers numberOfRepos="30"  numberOfFollowers="400" numberOfFollowing="200"/>
           
-          <UserLocationSocialMedia location="accra" twitterUserName="kofi ghana" blogUrl="ghaha.com" employer="BBC"/>
+             <UserBio :userBio="result[4]" />
+
+             <UserRepoFollowers
+           :numberOfRepos="result[5]"
+           :numberOfFollowers="result[6]" 
+           :numberOfFollowing="result[7]"/>
+          
+          <UserLocationSocialMedia 
+          :location="result[8]" 
+          :twitterUserName="result[9]"
+          :blogUrl="result[10]"
+          :employer="result[11]"/>
+        
         
         </span>
 
@@ -72,7 +80,7 @@ const {result, errorState, isLoading, errorMessage} = userGithubData
         
         <div class="MobileUserDetails">
         
-            <UserImageComponent />
+          <UserImageComponent :userImage="result[3]"/>
 
         <!-- user details -->
         
@@ -106,8 +114,12 @@ const {result, errorState, isLoading, errorMessage} = userGithubData
 
       
 
-  <!-- <RouterView /> -->
-  </div>
+
+  
+  
+  <!-- </div> -->
+
+
 </template>
 
 <style scoped>

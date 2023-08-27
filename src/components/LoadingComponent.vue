@@ -4,7 +4,10 @@
 
 <template>
 
-<div class="loader"></div> 
+<div class="loader">
+
+  
+</div> 
 
 </template>
 
@@ -14,13 +17,14 @@ div{
     border: solid 1px;
     background-color: #141d2f;
 
+
 }
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   animation: spin 2s linear infinite;
 }
 

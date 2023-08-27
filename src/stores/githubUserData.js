@@ -10,46 +10,34 @@ export const userData = defineStore('githubData', () => {
 
     const result = ref([])
 
-    // const userName = ref("")
-    // const userLogin = ref("")
-    // const userImage = ref("") 
-    // const userDate = ref("")
-    // const userBio = ref("")
-    // const userRepo = ref(0)
-    // const userFollowers = ref(0)
-    // const userFollowing = ref(0)
-    // const userLocation = ref("")
-    // const userTwitter = ref("")
-    // const userUrl = ref("")
-    // const userCompany = ref("")
-
-    // const info = ref(null)
     const isLoading =  ref(false)
     const errorState = ref(false)
     const errorMessage = ref("")
 
+    const query = ref("")
 
-    
+
+
+
+
   async function fetchUserData(){
-    
+    console.log(userQuery.value)
     if (userQuery.value !== ""){
 
-        const query = ref(`https://api.github.com/users/${userQuery.value}`)
-        console.log(query.value)
+        query.value = (`https://api.github.com/users/${userQuery.value}`)
+
+
         try{
 
             isLoading.value = true
             errorState.value = false
 
-            await axios.get(query.value)
-            .then((data) => {
-
-                
+           await axios.get(query.value).then((data) =>  {
                 
                 result.value.push(data.data.name), 
                 result.value.push(data.data.login), 
                 result.value.push(data.data.created_at),
-                result.value.push(data.data.avatar_url) , 
+                result.value.push(data.data.avatar_url +".jpg") , 
                 result.value.push(data.data.bio), 
                 result.value.push(data.data.public_repos), 
                 result.value.push(data.data.followers),
@@ -59,26 +47,26 @@ export const userData = defineStore('githubData', () => {
                 result.value.push(data.data.url),
                 result.value.push(data.data.company)
 
-                console.log(result.value[0])
+                console.log(result.value)
                 
             });
         }catch (error){
-            console.log(error)
+            // console.log(error)
             errorState.value = true
             errorMessage.value = error
         }finally{
             isLoading.value = false
             userQuery.value = ""
+            
         }
   }
 
 
+}   
 
 
-}
- 
-  
-    
+
+
 
   return {
      userQuery, 
@@ -86,7 +74,7 @@ export const userData = defineStore('githubData', () => {
      isLoading,
      errorState,
      errorMessage,
-     result
+    result,
     //  userName, userLogin, userImage,
     //  userDate,
     //  userBio, userRepo,

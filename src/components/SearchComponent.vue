@@ -7,7 +7,7 @@ import { userData } from '@/stores/githubUserData'
 const userGithubData = userData()
 
 
-const {userQuery, fetchUserData} = userGithubData
+const {fetchUserData} = userGithubData
 
 
 </script>
@@ -24,7 +24,7 @@ const {userQuery, fetchUserData} = userGithubData
             </span>
             <span>
             <!-- <span id="noResult">No results</span> -->
-            <span  class="searchButton" @click="fetchUserData">Search</span>
+            <button type="submit" class="searchButton" @click="fetchUserData()">Search</button>
 
             </span>
             </div>
@@ -38,8 +38,9 @@ const {userQuery, fetchUserData} = userGithubData
         <input type="text" v-model="userGithubData.userQuery" placeholder="Search User..."/>
       </span>
       <span>
-        <span id="noResult">No results</span>
-        <span class="searchButton" @click="fetchUserData">Search</span>
+        <!-- <span id="noResult">No results</span> -->
+
+        <button class="searchButton" @click="fetchUserData">Search</button>
         
       </span>
       </div>
@@ -69,6 +70,7 @@ input{
     padding-left: 30px;
     color:white;
     font-size: larger;
+    width: 700px;
 }
 
 textarea:focus, input:focus{
@@ -98,6 +100,7 @@ textarea:focus, input:focus{
     padding-right: 30px;
     padding: 15px;
     cursor: pointer;
+    border-style:none;
 
 
 }
@@ -163,6 +166,7 @@ textarea:focus, input:focus{
     border-radius: 10px;
     padding: 10px;
     cursor: pointer;
+    border-style:none;
 
 }
 

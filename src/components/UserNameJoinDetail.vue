@@ -1,12 +1,15 @@
 
 <script setup>
+
 defineProps([
     'userName',
     'dateJoined',
     'gitHubName',
-    
+])
 
-])</script>
+
+
+</script>
 
 <template>
     <div class="desktop">

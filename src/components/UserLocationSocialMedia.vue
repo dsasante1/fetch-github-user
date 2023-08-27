@@ -9,6 +9,9 @@ defineProps([
 
 ])
 
+
+// const emptyString
+
 </script>
 
 
@@ -19,18 +22,34 @@ defineProps([
 
     <div class="innerSection">
         <span>
-            <img id="iconImage" src="@/assets/location.svg" alt="icon image">
-            <img id="iconImage" src="@/assets/003-pin.svg" alt="icon image">
-            <span>{{ location }}</span> 
+
+            <div v-if="location">
+                <img id="iconImage" src="@/assets/003-pin.svg" alt="location image">
+                <span>{{ location }}</span> 
+            </div>
+
+            <div v-else>
+                <img id="iconImage" src="@/assets/location.svg" alt="location image">
+                <span>N/A</span>
+            </div>
+
         </span>
 
 
 
     
         <span>
-            <img id="iconImage" src="@/assets/twitter.svg" alt="icon image">
-            <img id="iconImage" src="@/assets/Path.svg" alt="icon image">
-            <span>{{ twitterUserName }}</span> 
+            <div  v-if="twitterUserName">
+                <img id="iconImage" src="@/assets/Path.svg" alt="twitter image">
+                <span>{{ twitterUserName }}</span> 
+            </div>
+            <div v-else>
+                <img id="iconImage" src="@/assets/twitter.svg" alt="twitter image">
+                <span>N/A</span> 
+
+            </div>
+
+            
         </span>
 
     </div>
@@ -39,14 +58,34 @@ defineProps([
     <div  class="innerSection">
 
     <span>
-        <img id="iconImage" src="@/assets/url.svg" alt="icon image">
-        <img id="iconImage" src="@/assets/002-url.svg" alt="icon image">
-        <span>{{ blogUrl }}</span> 
+
+        <div v-if="blogUrl">
+            
+            <img id="iconImage" src="@/assets/002-url.svg" alt="url image">
+            <span>{{ blogUrl }}</span> 
+        </div>
+       
+
+        <div v-else>
+            <img id="iconImage" src="@/assets/url.svg" alt="office image">
+            <span>N/A</span> 
+        </div>
+
+
     </span>
 
     <span>
-        <img id="iconImage" src="@/assets/office.svg" alt="icon image">
-        <span>{{ employer }}</span> 
+        <div v-if="employer">
+            <img id="iconImage" src="@/assets/001-office-building.svg" alt="office image">
+            <span>{{ employer }}</span> 
+            
+
+        </div>
+
+        <div v-else>
+            <span>N/A</span> 
+            
+        </div>
     </span>
     </div>
 
@@ -74,6 +113,7 @@ defineProps([
     flex-direction: row;
     gap: 20px;
     justify-content: space-between;
+    color: white
 }
 
 
@@ -85,6 +125,7 @@ defineProps([
     flex-direction: column;
     gap: 20px;
     justify-content: space-between;
+    color:white
 }
 
 
