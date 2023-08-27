@@ -85,7 +85,7 @@ let {dataFetched, errorState, isLoading, errorMessage} = storeToRefs(userGithubD
         <!-- user details -->
         
         
-        <UserNameJoinDetail :userName="userGithubData.dataFetched.name"
+        <UserNameJoinDetail :userName="dataFetched.name"
              :dateJoined="dataFetched.created_at" 
              :gitHubName="dataFetched.login"/>
         </div>
