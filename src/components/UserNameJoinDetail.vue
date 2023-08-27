@@ -1,11 +1,23 @@
 
 <script setup>
 
-defineProps([
+import {ref} from 'vue'
+
+const userDetails = defineProps([
     'userName',
     'dateJoined',
     'gitHubName',
 ])
+
+
+let newDate = ref("")
+
+
+if(userDetails.dateJoined !== undefined){
+    newDate.value = userDetails.dateJoined.split("T")[0]
+
+}
+
 
 
 
@@ -20,7 +32,7 @@ defineProps([
 
         </span>
         
-        <span>Joined {{ dateJoined }}</span>
+        <span>Joined: {{ newDate }}</span>
     </div>
 
 
@@ -31,7 +43,7 @@ defineProps([
                 <h1>{{ userName }}</h1>
                 <span id="gitId">{{ gitHubName }}</span>
             </span>
-            <span>Joined {{ dateJoined }}</span>
+            <span>Joined: {{ newDate }}</span>
         </div>
         
 
@@ -55,6 +67,7 @@ defineProps([
         justify-content: space-between;
         align-items: center;
         color: white;
+        gap: 50px;
     }
 
 

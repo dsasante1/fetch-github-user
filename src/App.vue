@@ -18,7 +18,7 @@ import { userData } from '@/stores/githubUserData'
 let userGithubData = userData()
 
 
-let {result, errorState, isLoading, errorMessage} = storeToRefs(userGithubData)
+let {dataFetched, errorState, isLoading, errorMessage} = storeToRefs(userGithubData)
 
 </script>
 
@@ -44,31 +44,31 @@ let {result, errorState, isLoading, errorMessage} = storeToRefs(userGithubData)
       </div>
       
 
-      <!-- <div v-else-if="isLoading === false && errorState == false"> -->
+      <div v-else-if="isLoading === false && errorState == false">
         
         <div class="UserDetailsCard">
         
-        <UserImageComponent :userImage="result[3]"/>
+        <UserImageComponent :userImage="userGithubData.dataFetched.avatar_url"/>
 
         <!-- user details -->
         <span class="userDetails">
-          <UserNameJoinDetail :userName="result[0]"
-             :dateJoined="result[2]" 
-             :gitHubName="result[1]"/>
+          <UserNameJoinDetail :userName="userGithubData.dataFetched.name"
+             :dateJoined="dataFetched.created_at" 
+             :gitHubName="dataFetched.login"/>
 
           
-             <UserBio :userBio="result[4]" />
+             <UserBio :userBio="dataFetched.bio" />
 
-             <UserRepoFollowers
-           :numberOfRepos="result[5]"
-           :numberOfFollowers="result[6]" 
-           :numberOfFollowing="result[7]"/>
+            <UserRepoFollowers
+           :numberOfRepos="dataFetched.public_repos"
+           :numberOfFollowers="dataFetched.followers" 
+           :numberOfFollowing="dataFetched.following"/>
           
           <UserLocationSocialMedia 
-          :location="result[8]" 
-          :twitterUserName="result[9]"
-          :blogUrl="result[10]"
-          :employer="result[11]"/>
+          :location="dataFetched.location" 
+          :twitterUserName="dataFetched.twitter_username"
+          :blogUrl="dataFetched.blog"
+          :employer="dataFetched.company"/>
         
         
         </span>
@@ -80,44 +80,39 @@ let {result, errorState, isLoading, errorMessage} = storeToRefs(userGithubData)
         
         <div class="MobileUserDetails">
         
-          <UserImageComponent :userImage="result[3]"/>
+          <UserImageComponent :userImage="dataFetched[3]"/>
 
         <!-- user details -->
         
         
-            <UserNameJoinDetail :userName="result[0]"
-             :dateJoined="result[2]" 
-             :gitHubName="result[1]"/>
-
+        <UserNameJoinDetail :userName="userGithubData.dataFetched.name"
+             :dateJoined="dataFetched.created_at" 
+             :gitHubName="dataFetched.login"/>
         </div>
           
-          <UserBio :userBio="result[4]"
-          />
+        <UserBio :userBio="dataFetched.bio" />
 
-          <UserRepoFollowers
-           :numberOfRepos="result[5]"
-           :numberOfFollowers="result[6]" 
-           :numberOfFollowing="result[7]"/>
+        <UserRepoFollowers
+           :numberOfRepos="dataFetched.public_repos"
+           :numberOfFollowers="dataFetched.followers" 
+           :numberOfFollowing="dataFetched.following"/>
           
           <UserLocationSocialMedia 
-          :location="result[8]" 
-          :twitterUserName="result[9]"
-          :blogUrl="result[10]"
-          :employer="result[11]"/>
-        
+          :location="dataFetched.location" 
+          :twitterUserName="dataFetched.twitter_username"
+          :blogUrl="dataFetched.blog"
+          :employer="dataFetched.company"/>
+                
     
 
           
       </div> 
 
       </div>
-
       
+  </div>
 
-
-  
-  
-  <!-- </div> -->
+ 
 
 
 </template>

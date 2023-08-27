@@ -5,7 +5,7 @@ import { ref } from 'vue';
 
 const errorInfo = defineProps(['errorMessage'])
 
-console.log(errorInfo.errorMessage)
+
 
 let fetchErrorMessage = errorInfo.errorMessage.toString()
 

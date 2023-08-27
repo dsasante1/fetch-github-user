@@ -8,7 +8,7 @@ export const userData = defineStore('githubData', () => {
 
     const userQuery = ref("")
 
-    const result = ref([])
+    let dataFetched = ref({});
 
     const isLoading =  ref(false)
     const errorState = ref(false)
@@ -21,7 +21,7 @@ export const userData = defineStore('githubData', () => {
 
 
   async function fetchUserData(){
-    console.log(userQuery.value)
+   
     if (userQuery.value !== ""){
 
         query.value = (`https://api.github.com/users/${userQuery.value}`)
@@ -33,25 +33,12 @@ export const userData = defineStore('githubData', () => {
             errorState.value = false
 
            await axios.get(query.value).then((data) =>  {
-                
-                result.value.push(data.data.name), 
-                result.value.push(data.data.login), 
-                result.value.push(data.data.created_at),
-                result.value.push(data.data.avatar_url +".jpg") , 
-                result.value.push(data.data.bio), 
-                result.value.push(data.data.public_repos), 
-                result.value.push(data.data.followers),
-                result.value.push(data.data.following), 
-                result.value.push(data.data.location), 
-                result.value.push(data.data.twitter_username),
-                result.value.push(data.data.url),
-                result.value.push(data.data.company)
 
-                console.log(result.value)
+            dataFetched.value = data.data
                 
             });
         }catch (error){
-            // console.log(error)
+            
             errorState.value = true
             errorMessage.value = error
         }finally{
@@ -74,12 +61,6 @@ export const userData = defineStore('githubData', () => {
      isLoading,
      errorState,
      errorMessage,
-    result,
-    //  userName, userLogin, userImage,
-    //  userDate,
-    //  userBio, userRepo,
-    //  userFollowers, userFollowing, userLocation,
-    //  userTwitter, userUrl, userCompany,
-
+    dataFetched
     }
 })
