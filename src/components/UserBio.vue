@@ -21,6 +21,7 @@ defineProps([
 
 div{
 color: white;
+text-align: center;
 }
 
 
