@@ -83,6 +83,7 @@ defineProps([
         </div>
 
         <div v-else>
+            <img id="iconImage" src="@/assets/office.svg" alt="office image">
             <span>N/A</span> 
             
         </div>

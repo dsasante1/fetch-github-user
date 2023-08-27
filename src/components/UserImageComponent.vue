@@ -4,6 +4,8 @@
 
 defineProps(['userImage'])
 
+// get image
+
 
 
 
