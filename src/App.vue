@@ -80,7 +80,7 @@ let {dataFetched, errorState, isLoading, errorMessage} = storeToRefs(userGithubD
         
         <div class="MobileUserDetails">
         
-          <UserImageComponent :userImage="dataFetched[3]"/>
+          <UserImageComponent :userImage="userGithubData.dataFetched.avatar_url"/>
 
         <!-- user details -->
         
