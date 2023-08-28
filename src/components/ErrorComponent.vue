@@ -23,20 +23,27 @@ if(fetchErrorMessage.includes("400")){
 
 
 <template>
-
-<div>
+<div class="body">
+    <div>
     <p>{{ newErrorMessage }}</p>
 </div> 
+</div>
+
 
 </template>
 
 <style scoped>
 
 div{
-    position: relative;
-    left: 80px;
+    text-align: center;
     color: red;
     background-color: #141d2f; 
+}
+
+.body{
+  background-color: #141d2f;
+  padding-bottom: 400px;
+
 }
 
 </style>

@@ -3,8 +3,10 @@
 
 
 <template>
+<div class="body">
+  <div class="loader">
+</div>
 
-<div class="loader">
 
   
 </div> 
@@ -19,7 +21,18 @@ div{
 
 
 }
+
+.body{
+  background-color: #141d2f;
+  padding-bottom: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .loader {
+
   border: 16px solid #f3f3f3; /* Light grey */
   border-top: 16px solid #3498db; /* Blue */
   border-radius: 50%;
