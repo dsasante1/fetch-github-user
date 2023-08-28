@@ -35,7 +35,7 @@ export const userData = defineStore('githubData', () => {
            await axios.get(query.value).then((data) =>  {
 
             dataFetched.value = data.data
-                
+                            
             });
         }catch (error){
             

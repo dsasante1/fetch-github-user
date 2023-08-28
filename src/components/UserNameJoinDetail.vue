@@ -2,6 +2,8 @@
 <script setup>
 
 import {ref} from 'vue'
+import moment from 'moment'
+
 
 const userDetails = defineProps([
     'userName',
@@ -11,10 +13,15 @@ const userDetails = defineProps([
 
 
 let newDate = ref("")
+let displayDate = ref("")
+
 
 
 if(userDetails.dateJoined !== undefined){
-    newDate.value = userDetails.dateJoined.split("T")[0]
+    newDate.value = new Date(userDetails.dateJoined.split("T")[0])
+
+    displayDate.value =  moment(newDate.value).format("D MMM YYYY")
+    
 
 }
 
@@ -32,7 +39,7 @@ if(userDetails.dateJoined !== undefined){
 
         </span>
         
-        <span>Joined: {{ newDate }}</span>
+        <span>Joined: {{ displayDate }}</span>
     </div>
 
 
@@ -43,7 +50,7 @@ if(userDetails.dateJoined !== undefined){
                 <h1>{{ userName }}</h1>
                 <span id="gitId">{{ gitHubName }}</span>
             </span>
-            <span>Joined: {{ newDate }}</span>
+            <span>Joined: {{ displayDate }}</span>
         </div>
         
 
